@@ -40,7 +40,6 @@ void init()
 
 }
 
-
 int main() {
     Game a;
     while (1) {
