@@ -2,17 +2,19 @@
 #include <stdlib.h>
 
 #define FPS 5
-#define SIZE_X 20
-#define SIZE_Y 20
+#define SIZE_X 256
+#define SIZE_Y 256
 
 typedef struct unit {
     int x, y;
-    float angle;
+    signed char state;
+    char **texture;
+    int sizeX, sizeY;
 } Unit;
 
 typedef struct game {
     char screen[SIZE_Y][SIZE_X];
-    Unit player, ball;
+    Unit player, *invader, *bullet;
     unsigned scoreCounter;
 } Game;
 
@@ -32,6 +34,12 @@ void draw_playground(char screen[SIZE_Y][SIZE_X]) {
         }
     }
 }
+
+void init()
+{
+
+}
+
 
 int main() {
     Game a;
