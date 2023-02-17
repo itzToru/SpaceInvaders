@@ -5,6 +5,8 @@
 #define SIZE_X 256
 #define SIZE_Y 256
 
+
+
 typedef struct unit {
     int x, y;
     signed char state;
@@ -37,7 +39,7 @@ void draw_playground(char screen[SIZE_Y][SIZE_X]) {
 
 void init()
 {
-
+    //TODO: invaders cnt, read invaders texture with all sizes, make invaders mas
 }
 
 int main() {
