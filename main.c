@@ -38,7 +38,7 @@ void draw_playground(char screen[SIZE_Y][SIZE_X]) {
 }
 
 void initInvader() {
-    FILE **file = fopen("invader.txt", "r");
+    FILE *file = fopen("invader.txt", "r");
 
     Unit invader;
     fscanf(file, "%i%i", &invader.sizeY, &invader.sizeX);
@@ -54,7 +54,7 @@ void initInvader() {
 }
 
 void initPlayer(){
-    FILE **file = fopen("player.txt", "r");
+    FILE *file = fopen("player.txt", "r");
 
     Unit player;
     fscanf(file, "%i%i", &player.sizeY, &player.sizeX);
