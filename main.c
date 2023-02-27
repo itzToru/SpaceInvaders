@@ -75,7 +75,7 @@ void initPlayer(){
     fclose("player.txt");
 }
 
-//TODO: invaders cnt, read invaders texture with all sizes, make invaders mas
+//TODO: invaders cnt, make invaders mas
 
 
 int main() {
