@@ -37,7 +37,7 @@ void draw_playground(char screen[SIZE_Y][SIZE_X]) {
     }
 }
 
-void initInvader() {
+Unit initInvader() {
     FILE *file = fopen("invader.txt", "r");
 
     Unit invader;
@@ -53,7 +53,7 @@ void initInvader() {
     fclose(file);
 }
 
-void initPlayer(){
+Unit initPlayer(){
     FILE *file = fopen("player.txt", "r");
 
     Unit player;
