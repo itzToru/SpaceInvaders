@@ -37,10 +37,46 @@ void draw_playground(char screen[SIZE_Y][SIZE_X]) {
     }
 }
 
-void init()
-{
-    //TODO: invaders cnt, read invaders texture with all sizes, make invaders mas
+void initInvader() {
+    FILE **file = fopen("invader.txt", "r");
+
+    Unit invader;
+    fscanf(file, "%i%i", &invader.sizeY, &invader.sizeX);
+
+    invader.texture = (char **) malloc(invader.sizeY * sizeof(char *));
+
+    for (int i = 0; i < invader.sizeY; i++) {
+        invader.texture[i] = (char *) malloc(invader.sizeX);
+
+    }
+
+    for (int i = 0; i < invader.sizeY; i++) {
+        fscanf(file, "%s", invader.texture[i]);
+    }
+    fclose("invader.txt");
 }
+
+void initPlayer(){
+    FILE **file = fopen("player.txt", "r");
+
+    Unit player;
+    fscanf(file, "%i%i", &player.sizeY, &player.sizeX);
+
+    player.texture = (char**)malloc(player.sizeY * sizeof(char*));
+
+    for (int i = 0; i < player.sizeY; i++) {
+        player.texture[i] = (char*) malloc(player.sizeX);
+
+    }
+
+    for (int i = 0; i < player.sizeY; i++) {
+        fscanf(file, "%s", player.texture[i]);
+    }
+    fclose("player.txt");
+}
+
+//TODO: invaders cnt, read invaders texture with all sizes, make invaders mas
+
 
 int main() {
     Game a;
