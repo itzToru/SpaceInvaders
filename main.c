@@ -47,13 +47,10 @@ void initInvader() {
 
     for (int i = 0; i < invader.sizeY; i++) {
         invader.texture[i] = (char *) malloc(invader.sizeX);
-
-    }
-
-    for (int i = 0; i < invader.sizeY; i++) {
         fscanf(file, "%s", invader.texture[i]);
     }
-    fclose("invader.txt");
+
+    fclose(file);
 }
 
 void initPlayer(){
@@ -66,17 +63,11 @@ void initPlayer(){
 
     for (int i = 0; i < player.sizeY; i++) {
         player.texture[i] = (char*) malloc(player.sizeX);
-
-    }
-
-    for (int i = 0; i < player.sizeY; i++) {
         fscanf(file, "%s", player.texture[i]);
     }
-    fclose("player.txt");
+
+    fclose(file);
 }
-
-//TODO: invaders cnt, make invaders mas
-
 
 int main() {
     Game a;
