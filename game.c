@@ -37,18 +37,26 @@ Unit initInvader() {
     fclose(file);
 }
 
-Unit initPlayer(){
+Unit initPlayer() {
     FILE *file = fopen("player.txt", "r");
 
     Unit player;
     fscanf(file, "%i%i", &player.sizeY, &player.sizeX);
 
-    player.texture = (char**)malloc(player.sizeY * sizeof(char*));
+    player.texture = (char **) malloc(player.sizeY * sizeof(char *));
 
     for (int i = 0; i < player.sizeY; i++) {
-        player.texture[i] = (char*) malloc(player.sizeX);
+        player.texture[i] = (char *) malloc(player.sizeX);
         fscanf(file, "%s", player.texture[i]);
     }
 
     fclose(file);
+}
+
+void draw(Unit unit, Game game){
+    for(int i = 0; i < unit.sizeY; i++){
+        for(int j = 0; j < unit.sizeX; j++){
+            game.screen[unit.y + i][unit.x + j] = unit.texture[i][j];
+        }
+    }
 }
