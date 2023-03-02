@@ -27,9 +27,14 @@ typedef struct game {
 } Game;
 
 void print_frame(Game *game);
+
 void draw_playground(char screen[SIZE_Y][SIZE_X]);
+
 Unit initInvader();
+
 Unit initPlayer();
+
+void draw(Unit unit);
 
 #endif //SPACEINVADERS_GAME_H
 
