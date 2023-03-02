@@ -35,6 +35,14 @@ Unit initInvader();
 
 Unit initPlayer();
 
+void moveLeft(Unit*);
+
+void moveRight(Unit*);
+
+void moveUp(Unit*);
+
+void moveDown(Unit*);
+
 void draw(Unit, Game);
 
 bool isColide(Unit, Unit);
