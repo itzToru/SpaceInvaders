@@ -60,3 +60,26 @@ void draw(Unit unit, Game game){
         }
     }
 }
+
+bool isColide(Unit a, Unit b) {
+    if ((a.y >= b.y || a.y <= (b.y + b.sizeY)) && (a.x >= b.x || a.x <= (b.x + b.sizeX))){
+        return true;
+    }
+    return false;
+}
+
+void moveDown(Unit *unit) {
+    unit->y++;
+}
+
+void moveUp(Unit *unit) {
+    unit->y--;
+}
+
+void moveRight(Unit *unit) {
+    unit->x++;
+}
+
+void moveLeft(Unit *unit) {
+    unit->x--;
+}
