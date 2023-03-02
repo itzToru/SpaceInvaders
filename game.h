@@ -5,13 +5,14 @@
 #ifndef SPACEINVADERS_GAME_H
 #define SPACEINVADERS_GAME_H
 
+
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdbool.h>
 
 #define FPS 5
 #define SIZE_X 256
 #define SIZE_Y 256
-
 
 typedef struct unit {
     int x, y;
@@ -34,10 +35,16 @@ Unit initInvader();
 
 Unit initPlayer();
 
-void draw(Unit unit);
+void moveLeft(Unit*);
+
+void moveRight(Unit*);
+
+void moveUp(Unit*);
+
+void moveDown(Unit*);
+
+void draw(Unit, Game);
+
+bool isColide(Unit, Unit);
 
 #endif //SPACEINVADERS_GAME_H
-
-
-
-
