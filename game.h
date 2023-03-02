@@ -27,7 +27,7 @@ typedef struct game {
     unsigned scoreCounter;
 } Game;
 
-void print_frame(Game *game);
+void print_frame(Game *);
 
 void draw_playground(char screen[SIZE_Y][SIZE_X]);
 
@@ -35,13 +35,13 @@ Unit initInvader();
 
 Unit initPlayer();
 
-void moveLeft(Unit*);
+void moveLeft(Unit *);
 
-void moveRight(Unit*);
+void moveRight(Unit *);
 
-void moveUp(Unit*);
+void moveUp(Unit *);
 
-void moveDown(Unit*);
+void moveDown(Unit *);
 
 void draw(Unit, Game);
 
