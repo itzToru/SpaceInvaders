@@ -35,6 +35,7 @@ Unit initInvader() {
     }
 
     fclose(file);
+    return invader;
 }
 
 Unit initPlayer() {
@@ -51,6 +52,7 @@ Unit initPlayer() {
     }
 
     fclose(file);
+    return player;
 }
 
 void draw(Unit unit, Game game){

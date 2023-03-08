@@ -23,7 +23,6 @@ typedef struct unit {
 
 typedef struct game {
     char screen[SIZE_Y][SIZE_X];
-    Unit player, *invader, *bullet;
     unsigned scoreCounter;
 } Game;
 
