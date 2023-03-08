@@ -3,4 +3,4 @@ project(SpaceInvaders)
 
 set(CMAKE_C_STANDARD 99)
 
-add_executable(SpaceInvaders main.c game.c game.h)
+add_executable(SpaceInvaders main.c game.c )
