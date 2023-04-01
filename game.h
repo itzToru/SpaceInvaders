@@ -12,7 +12,7 @@
 
 #define FPS 5
 #define SIZE_X 128
-#define SIZE_Y 64
+#define SIZE_Y 69
 
 typedef struct unit {
     int x, y;

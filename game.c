@@ -2,6 +2,7 @@
 // Created by shafa on 27.02.2023.
 //
 
+#include <synchapi.h>
 #include "game.h"
 
 void print_frame(Game *game) {
