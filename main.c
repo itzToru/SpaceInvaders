@@ -3,7 +3,7 @@
 
 int main() {
     Game game;
-    Unit* invaders = malloc(3 * sizeof (Unit));
+    Unit* invaders = malloc(12 * sizeof (Unit));
     Unit* bullet = malloc(sizeof(Unit));
 
     Unit player;
@@ -16,14 +16,11 @@ int main() {
     invaders[0].y = 10;
     invaders[0].x = 10;
 
-    invaders[1].y = 10;
-    invaders[1].x = 30;
+    for(int i = 1; i < 3; i++){
+        invaders[i].x = invaders[i - 1].x + 20;
+        invaders[i].y = invaders[0].y;
+    }
 
-    invaders[2].y = 10;
-    invaders[2].x = 50;
-
-    invaders[3].y = 10;
-    invaders[3].x = 70;
 
     int vector = 1;
 
@@ -53,6 +50,7 @@ int main() {
                     for(int j = 0; j < 4; j++)
                         moveRight(&invaders[j]);
                 }
+
 //                invaders[0].y = invadersY;
 //                invaders[0].x = 10;
 //
