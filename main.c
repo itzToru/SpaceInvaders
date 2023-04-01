@@ -9,7 +9,7 @@ int main() {
     Unit player;
     initPlayer(&player);
 
-    for(int i = 0; i < 3; i++){
+    for(int i = 0; i < 4; i++){
         initInvader(invaders + i);
     }
 
@@ -22,27 +22,45 @@ int main() {
     invaders[2].y = 10;
     invaders[2].x = 50;
 
-    int invadersY = 10;
+    invaders[3].y = 10;
+    invaders[3].x = 70;
+
+    int vector = 1;
 
     while(1) {
         draw_playground(game.screen);
 
-        for(int i = 0; i < 3; i++){
+        for(int i = 0; i < 4; i++){
             draw(invaders[i], &game);
         }
-        for (int i = 0; i < 3; ++i) {
-            if(invaders[i].x < SIZE_X - invaders[i].sizeX - 2)
-                moveRight(&invaders[i]);
+        for (int i = 0; i < 4; ++i) {
+            if(invaders[3].x < SIZE_X - invaders[i].sizeX - 2 && invaders[0].x > 1)
+                if(vector == 1)
+                    moveRight(&invaders[i]);
+                else
+                    moveLeft(&invaders[i]);
             else {
-                invadersY += 5;
-                invaders[0].y = invadersY;
-                invaders[0].x = 10;
-
-                invaders[1].y = invadersY;
-                invaders[1].x = 30;
-
-                invaders[2].y = invadersY;
-                invaders[2].x = 50;
+                for (int j = 0; j < 4; ++j) {
+                    moveDown(&invaders[j]);
+                }
+                if(vector) {
+                    vector = 0;
+                    for(int j = 0; j < 4; j++)
+                        moveLeft(&invaders[j]);
+                }
+                else {
+                    vector = 1;
+                    for(int j = 0; j < 4; j++)
+                        moveRight(&invaders[j]);
+                }
+//                invaders[0].y = invadersY;
+//                invaders[0].x = 10;
+//
+//                invaders[1].y = invadersY;
+//                invaders[1].x = 30;
+//
+//                invaders[2].y = invadersY;
+//                invaders[2].x = 50;
             }
         }
         print_frame(&game);
