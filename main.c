@@ -16,9 +16,10 @@ int main() {
     invaders[0].y = 10;
     invaders[0].x = 10;
 
-    for(int i = 1; i < 3; i++){
+    for(int i = 1; i < 4; i++){
         invaders[i].x = invaders[i - 1].x + 20;
         invaders[i].y = invaders[0].y;
+        printf("[%d]Invader X: %d, Y: %d\n", i, invaders[i].x, invaders[i].y);
     }
 
 
