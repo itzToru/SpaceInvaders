@@ -49,9 +49,13 @@ void initPlayer(Unit* player) {
 
     for (int i = 0; i < player->sizeY; i++) {
         player->texture[i] = (char *) malloc(player->sizeX);
-        fscanf(file, "%s", player->texture[i]);
-    }
+        for (int j = 0; j < player->sizeX; ++j) {
+            fscanf(file, "%c", &player->texture[i][j]);
+            if(player->texture[i][j] == '\n') j--;
+            if(player->texture[i][j] == '.') player->texture[i][j] = ' ';
+        }
 
+    }
     fclose(file);
 }
 

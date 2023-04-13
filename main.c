@@ -9,8 +9,8 @@ int main() {
     Unit player;
     initPlayer(&player);
 
-    player.x = 123;
-    player.y = SIZE_Y - 5;
+    player.x = SIZE_X / 2;
+    player.y = SIZE_Y - 8;
 
     for(int i = 0; i < 15; i++){
         initInvader(invaders + i);
