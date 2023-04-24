@@ -59,6 +59,15 @@ void initPlayer(Unit* player) {
     fclose(file);
 }
 
+void initBullet(Unit *bullet){
+    bullet->texture = (char **) malloc(bullet->sizeY * sizeof(char *));
+
+    for (int i = 0; i < bullet->sizeY; i++) {
+        bullet->texture[i] = (char *) malloc(bullet->sizeX);
+        for (int j = 0; j < bullet->sizeX; ++j)
+            bullet->texture[i][j] = '#';
+}
+
 void draw(Unit unit, Game* game){
     for(int i = 0; i < unit.sizeY; i++){
         for(int j = 0; j < unit.sizeX; j++){
@@ -88,4 +97,10 @@ void moveRight(Unit *unit) {
 
 void moveLeft(Unit *unit) {
     unit->x--;
+}
+
+char get_key(){
+    if (kbhit()) {
+        return getch();
+    };
 }

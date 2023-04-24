@@ -6,8 +6,19 @@ int main() {
     Unit* invaders = malloc(15 * sizeof (Unit));
     Unit* bullet = malloc(sizeof(Unit));
 
+    int bulletsNum;
+
+    int posX, posY;
+    char key;
+
     Unit player;
     initPlayer(&player);
+
+    bullet->sizeX = 1;
+    bullet->sizeY = 2;
+
+    initBullet(&bullet);
+
 
     player.x = SIZE_X / 2;
     player.y = SIZE_Y - 8;
@@ -35,6 +46,26 @@ int main() {
 
     while(1) {
         draw_playground(game.screen);
+
+        key = get_key();
+
+        if (key == 'a'){
+            moveLeft(&player);
+            moveLeft(&player);
+            moveLeft(&player);
+        }
+        else if (key == 'd'){
+            moveRight(&player);
+            moveRight(&player);
+            moveRight(&player);
+        }
+
+        bullet = realloc(bullet, sizeof(Unit) * bulletsNum + 1);
+        bulletsNum++;
+
+        for(int n = 1; n < bulletsNum; n++){
+            bullet[n] = bullet[n - 1];
+        }
 
         for(int i = 0; i < 15; i++){
             draw(invaders[i], &game);
@@ -71,7 +102,7 @@ int main() {
         print_frame(&game);
         Sleep(100);
         //for(int i = 0; i < SIZE_Y + 1; i++) puts("");
-        //Sleep(10);
+        //Sleep(10)
         system("cls");
     }
 }

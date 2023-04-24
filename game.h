@@ -9,6 +9,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
+#include <conio.h>
 
 #define FPS 5
 #define SIZE_X 128
@@ -43,6 +44,10 @@ void moveUp(Unit *);
 void moveDown(Unit *);
 
 void draw(Unit, Game*);
+
+char get_key();
+
+void initBullet(Unit *bullet);
 
 bool isColide(Unit, Unit);
 
