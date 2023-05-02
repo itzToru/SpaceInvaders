@@ -20,7 +20,7 @@ void draw_playground(char screen[SIZE_Y][SIZE_X]) {
     }
 }
 
-void initInvader(Unit* invader) {
+void initInvader(Unit *invader) {
     FILE *file = fopen("../invader.txt", "r");
 
     fscanf(file, "%i%i", &invader->sizeY, &invader->sizeX);
@@ -31,8 +31,8 @@ void initInvader(Unit* invader) {
         invader->texture[i] = (char *) malloc(invader->sizeX);
         for (int j = 0; j < invader->sizeX; ++j) {
             fscanf(file, "%c", &invader->texture[i][j]);
-            if(invader->texture[i][j] == '\n') j--;
-            if(invader->texture[i][j] == '.') invader->texture[i][j] = ' ';
+            if (invader->texture[i][j] == '\n') j--;
+            if (invader->texture[i][j] == '.') invader->texture[i][j] = ' ';
         }
 
     }
@@ -40,7 +40,7 @@ void initInvader(Unit* invader) {
     fclose(file);
 }
 
-void initPlayer(Unit* player) {
+void initPlayer(Unit *player) {
     FILE *file = fopen("../player.txt", "r");
 
     fscanf(file, "%i%i", &player->sizeY, &player->sizeX);
@@ -51,33 +51,34 @@ void initPlayer(Unit* player) {
         player->texture[i] = (char *) malloc(player->sizeX);
         for (int j = 0; j < player->sizeX; ++j) {
             fscanf(file, "%c", &player->texture[i][j]);
-            if(player->texture[i][j] == '\n') j--;
-            if(player->texture[i][j] == '.') player->texture[i][j] = ' ';
+            if (player->texture[i][j] == '\n') j--;
+            if (player->texture[i][j] == '.') player->texture[i][j] = ' ';
         }
 
     }
     fclose(file);
 }
 
-void initBullet(Unit *bullet){
+void initBullet(Unit *bullet) {
     bullet->texture = (char **) malloc(bullet->sizeY * sizeof(char *));
 
     for (int i = 0; i < bullet->sizeY; i++) {
         bullet->texture[i] = (char *) malloc(bullet->sizeX);
         for (int j = 0; j < bullet->sizeX; ++j)
             bullet->texture[i][j] = '#';
+    }
 }
 
-void draw(Unit unit, Game* game){
-    for(int i = 0; i < unit.sizeY; i++){
-        for(int j = 0; j < unit.sizeX; j++){
+void draw(Unit unit, Game *game) {
+    for (int i = 0; i < unit.sizeY; i++) {
+        for (int j = 0; j < unit.sizeX; j++) {
             game->screen[unit.y + i][unit.x + j] = unit.texture[i][j];
         }
     }
 }
 
 bool isColide(Unit a, Unit b) {
-    if ((a.y >= b.y || a.y <= (b.y + b.sizeY)) && (a.x >= b.x || a.x <= (b.x + b.sizeX))){
+    if ((a.y >= b.y || a.y <= (b.y + b.sizeY)) && (a.x >= b.x || a.x <= (b.x + b.sizeX))) {
         return true;
     }
     return false;
@@ -99,8 +100,16 @@ void moveLeft(Unit *unit) {
     unit->x--;
 }
 
-char get_key(){
+char get_key() {
     if (kbhit()) {
-        return getch();
+        char key = getch();
+        fflush(stdin);
+        return key;
     };
+}
+
+void swap(Unit *dest, Unit *source) {
+    Unit buffer = *source;
+    *source = *dest;
+    *dest = buffer;
 }

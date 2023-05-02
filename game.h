@@ -51,4 +51,6 @@ void initBullet(Unit *bullet);
 
 bool isColide(Unit, Unit);
 
+void swap(Unit *dest, Unit *source);
+
 #endif //SPACEINVADERS_GAME_H
